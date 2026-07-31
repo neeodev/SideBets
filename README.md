@@ -66,7 +66,7 @@ is their whole job.
 
 ## Credits
 
-Code and art by NeeoDev, MIT licensed. Balatro by LocalThunk, Steamodded by the
+Code and art by NeeoDev, GPL-3.0. Balatro by LocalThunk, Steamodded by the
 Steamodded team, Lovely Injector by ethangreen-dev.
 
 Unofficial fan mod, not affiliated with LocalThunk or Playstack.
