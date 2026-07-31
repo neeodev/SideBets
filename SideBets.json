@@ -1,0 +1,18 @@
+{
+    "id": "SideBets",
+    "name": "Side Bets",
+    "display_name": "Side Bets",
+    "author": ["NeeoDev"],
+    "description": "Vanilla-style Jokers for numbered cards, alternative hand shapes and overlooked card modifiers.",
+    "prefix": "sdb",
+    "main_file": "SideBets.lua",
+    "config_file": "config.lua",
+    "priority": 0,
+    "badge_colour": "3B6E8F",
+    "badge_text_colour": "FFFFFF",
+    "version": "1.0.0",
+    "dependencies": [
+        "Steamodded (>=1.0.0~BETA-0624a)"
+    ],
+    "icon_path": "mod_icon.png"
+}
