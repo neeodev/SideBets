@@ -35,12 +35,13 @@ return {
                 },
             },
 
-            j_sdb_fibonacci_spiral = {
-                name = "Fibonacci Spiral",
+            j_sdb_keep_your_distance = {
+                name = "Keep Your Distance",
                 text = {
-                    "Scored {C:attention}2s{}, {C:attention}3s{},",
-                    "{C:attention}5s{} and {C:attention}8s{}",
-                    "give {X:mult,C:white}X#1#{} Mult",
+                    "{X:mult,C:white}X#1#{} Mult if {C:attention}#3#{}+ scored cards",
+                    "are all {C:attention}numbered{} and no two",
+                    "ranks used are under {C:attention}#2#{} apart",
+                    "{C:inactive}(2+ ranks, repeats allowed){}",
                 },
             },
             j_sdb_patchwork = {

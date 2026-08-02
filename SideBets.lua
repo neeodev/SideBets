@@ -41,7 +41,7 @@ local JOKERS = {
     "common/house_edge",
     "common/stone_mason",
 
-    "uncommon/fibonacci_spiral",
+    "uncommon/keep_your_distance",
     "uncommon/patchwork",
     "uncommon/blank_slate",
     "uncommon/collectors_grade",

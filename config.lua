@@ -6,7 +6,7 @@ return {
         middle_child = true,
         house_edge = true,
         stone_mason = true,
-        fibonacci_spiral = true,
+        keep_your_distance = true,
         patchwork = true,
         blank_slate = true,
         collectors_grade = true,

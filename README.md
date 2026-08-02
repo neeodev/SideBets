@@ -29,7 +29,7 @@ Division keep scaling.
 
 | Joker | Cost | Effect |
 |---|---:|---|
-| Fibonacci Spiral | $6 | Scored 2s, 3s, 5s and 8s give X1.12 Mult |
+| Keep Your Distance | $6 | X2 Mult if 4 or more scored cards are all numbered and use at least two ranks, no two of them closer than 3 ranks apart. Repeated ranks are fine |
 | Patchwork | $6 | X1.75 Mult if all four suits score from non-Wild cards |
 | Blank Slate | $6 | Each scored card with no enhancement, seal or edition gives X1.10 Mult |
 | Collector's Grade | $7 | Each scored card with both an enhancement and an edition gives X1.18 Mult |
