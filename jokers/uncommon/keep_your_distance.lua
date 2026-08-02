@@ -40,7 +40,7 @@ SideBets.register_joker {
             local extra = card.ability.extra
             local hand = context.scoring_hand
 
-            if #hand >= extra.required_cards
+            if SideBets.scoring_count(hand) >= extra.required_cards
                 and SideBets.all_numeric(hand)
                 and ranks_are_spread(hand, extra.min_distance)
             then

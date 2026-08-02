@@ -20,7 +20,7 @@ Division keep scaling.
 
 | Joker | Cost | Effect |
 |---|---:|---|
-| Prime Time | $4 | Scored 2s, 3s, 5s and 7s give +6 Mult |
+| Prime Time | $4 | X1.5 Mult if a prime number of cards score, so 2, 3 or 5 of them |
 | Middle Child | $4 | Scored 6s, 7s and 8s give +30 Chips. If at least two different ranks among them score, also gives +10 Mult |
 | House Edge | $5 | Each scored Lucky Card gives a guaranteed X1.10 Mult |
 | Stone Mason | $5 | Gains +8 Chips when a Stone Card scores, then gives its stored Chips |

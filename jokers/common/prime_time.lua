@@ -1,4 +1,4 @@
-local PRIME_RANKS = { [2] = true, [3] = true, [5] = true, [7] = true }
+local PRIME_COUNTS = { [2] = true, [3] = true, [5] = true, [7] = true }
 
 SideBets.register_joker {
     id = "prime_time",
@@ -10,20 +10,17 @@ SideBets.register_joker {
     perishable_compat = true,
     config = {
         extra = {
-            mult = 6,
+            xmult = 1.5,
         },
     },
 
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult } }
+        return { vars = { card.ability.extra.xmult } }
     end,
 
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
-            local other = context.other_card
-            if SideBets.scores(other) and SideBets.rank_in(other, PRIME_RANKS) then
-                return { mult = card.ability.extra.mult }
-            end
+        if context.joker_main and PRIME_COUNTS[SideBets.scoring_count(context.scoring_hand)] then
+            return { x_mult = card.ability.extra.xmult }
         end
     end,
 }

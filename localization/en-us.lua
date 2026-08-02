@@ -4,9 +4,9 @@ return {
             j_sdb_prime_time = {
                 name = "Prime Time",
                 text = {
-                    "Scored {C:attention}2s{}, {C:attention}3s{},",
-                    "{C:attention}5s{} and {C:attention}7s{}",
-                    "give {C:mult}+#1#{} Mult",
+                    "{X:mult,C:white}X#1#{} Mult if a {C:attention}prime{} number",
+                    "of cards score",
+                    "{C:inactive}(2, 3 or 5 cards){}",
                 },
             },
             j_sdb_middle_child = {

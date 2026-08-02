@@ -2,6 +2,14 @@ local STRAIGHTS = { "Straight", "Straight Flush" }
 
 local ANALYSIS_OWNER = {}
 
+function SideBets.scoring_count(hand)
+    local count = 0
+    for i = 1, #(hand or {}) do
+        if SideBets.scores(hand[i]) then count = count + 1 end
+    end
+    return count
+end
+
 function SideBets.numeric_rank_set(hand)
     local set, count = {}, 0
     for i = 1, #(hand or {}) do
