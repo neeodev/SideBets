@@ -21,4 +21,8 @@ return {
         echo_chamber = true,
         long_division = true,
     },
+
+    wagers = {
+        enabled = true,
+    },
 }

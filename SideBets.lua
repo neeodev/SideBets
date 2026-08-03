@@ -23,16 +23,19 @@ SMODS.Atlas {
     py = 95,
 }
 
-local UTILITIES = {
-    "card.lua",
-    "hand.lua",
-    "scratch.lua",
-    "effects.lua",
-    "registry.lua",
+local SYSTEM = {
+    "utilities/card.lua",
+    "utilities/hand.lua",
+    "utilities/scratch.lua",
+    "utilities/effects.lua",
+    "utilities/registry.lua",
+
+    "wagers/state.lua",
+    "wagers/debug.lua",
 }
 
-for _, filename in ipairs(UTILITIES) do
-    assert(SMODS.load_file("utilities/" .. filename))()
+for _, path in ipairs(SYSTEM) do
+    assert(SMODS.load_file(path))()
 end
 
 local JOKERS = {
