@@ -17,20 +17,24 @@ local function announce(saved, joker, gain)
     G.E_MANAGER:add_event(Event({
         trigger = "immediate",
         func = function()
-            play_sound("tarot1")
-
             if not SideBets.is_destroyed(saved) then
                 saved:juice_up(0.5, 0.6)
-                card_eval_status_text(saved, "extra", nil, nil, nil, {
-                    message = localize("k_saved_ex"),
+                attention_text {
+                    text = localize("k_saved_ex"),
                     colour = G.C.RED,
-                })
+                    scale = 1.1,
+                    hold = 1.2,
+                    major = saved,
+                    align = "tm",
+                    offset = { x = 0, y = -0.3 },
+                }
             end
 
             joker:juice_up(0.4, 0.4)
             card_eval_status_text(joker, "extra", nil, nil, nil, {
                 message = "+" .. gain,
                 colour = G.C.MULT,
+                sound_override = "tarot1",
             })
             return true
         end,
