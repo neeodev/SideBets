@@ -3,21 +3,24 @@ local Wagers = SideBets.Wagers
 local GAP = 0.2
 local SLOT_W = 1.15
 
-local default_hand_w
+local joker_w
 
 function Wagers.layout()
     local area = G.sdb_wagers
-    if not area or not G.hand then return end
+    if not area or not G.jokers or not G.hand then return end
 
-    default_hand_w = default_hand_w or G.hand.T.w
+    joker_w = joker_w or G.jokers.T.w
 
     area.T.w = SLOT_W * G.CARD_W * Wagers.get_max_slots()
-    G.hand.T.w = default_hand_w - area.T.w - GAP
-    set_screen_positions()
+    area.T.x = G.hand.T.x - 0.1
+    area.T.y = G.jokers.T.y
 
-    area.T.x = G.hand.T.x - area.T.w - GAP
-    area.T.y = G.hand.T.y
+    local shift = area.T.w + GAP
+    G.jokers.T.x = area.T.x + shift
+    G.jokers.T.w = joker_w - shift
+
     area:hard_set_VT()
+    G.jokers:hard_set_VT()
 end
 
 function Wagers.refresh_area()
@@ -113,7 +116,7 @@ SMODS.current_mod.custom_card_areas = function(game)
     game.sdb_wagers = CardArea(0, 0, SLOT_W * G.CARD_W, 0.95 * G.CARD_H, {
         card_limit = Wagers.get_max_slots(),
         type = "joker",
-        highlight_limit = 0,
+        highlight_limit = 1,
         align_buttons = true,
     })
     game.sdb_wagers.save = function() return nil end
