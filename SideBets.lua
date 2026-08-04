@@ -76,6 +76,18 @@ local JOKERS = {
 
 local JOKER_IDS = {}
 
+local WAGERS = {
+    "small_numbers",
+    "exact_change",
+    "full_spectrum",
+    "no_second_chances",
+    "last_hand_standing",
+}
+
+for _, name in ipairs(WAGERS) do
+    assert(SMODS.load_file("wagers/cards/" .. name .. ".lua"))()
+end
+
 for _, name in ipairs(JOKERS) do
     assert(SMODS.load_file("jokers/" .. name .. ".lua"))()
     JOKER_IDS[#JOKER_IDS + 1] = name:match("[^/]+$")

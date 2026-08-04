@@ -36,6 +36,7 @@ SideBets.on_calculate(function(context)
                 card_id = card.sort_id,
                 rank = SideBets.rank_id(card),
                 suit = SideBets.native_suit(card),
+                wild = SMODS.has_any_suit(card) and true or nil,
             })
         end
     elseif is_blind_result(context) then

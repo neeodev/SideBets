@@ -24,5 +24,13 @@ return {
 
     wagers = {
         enabled = true,
+
+        cards = {
+            small_numbers = true,
+            exact_change = true,
+            full_spectrum = true,
+            no_second_chances = true,
+            last_hand_standing = true,
+        },
     },
 }

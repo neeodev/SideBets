@@ -38,7 +38,7 @@ function SideBets.register_wager(def)
 
     local extra_in_pool = def.in_pool
     def.in_pool = function(self, args)
-        if not Wagers.enabled() then return false end
+        if not Wagers.enabled() or not Wagers.card_enabled(id) then return false end
         if extra_in_pool then return extra_in_pool(self, args) end
         return true
     end

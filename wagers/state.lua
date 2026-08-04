@@ -11,6 +11,12 @@ function Wagers.enabled()
     return not cfg or cfg.enabled ~= false
 end
 
+function Wagers.card_enabled(id)
+    local cfg = SideBets.config and SideBets.config.wagers
+    local cards = cfg and cfg.cards
+    return not cards or cards[id] ~= false
+end
+
 function Wagers.get_state()
     if not G.GAME then return nil end
     G.GAME.sidebets = G.GAME.sidebets or {}

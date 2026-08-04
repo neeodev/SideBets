@@ -169,6 +169,57 @@ return {
             },
         },
         Wager = {
+            c_sdb_small_numbers = {
+                name = "Small Numbers",
+                text = {
+                    "Win the Blind with no {C:attention}Ace{},",
+                    "{C:attention}King{}, {C:attention}Queen{} or {C:attention}Jack{} scoring",
+                    "{C:green}Win{}: scored numbered cards",
+                    "gain {C:chips}+#1#{} Bonus Chips",
+                    "{C:red}Lose{}: {C:money}-$#2#{}",
+                },
+            },
+            c_sdb_exact_change = {
+                name = "Exact Change",
+                text = {
+                    "Win the Blind without going",
+                    "more than {C:attention}#1#%{} over the",
+                    "required score",
+                    "{C:green}Win{}: {C:money}+$#2#{}",
+                    "{C:red}Lose{}: {C:money}-$#3#{}",
+                },
+            },
+            c_sdb_full_spectrum = {
+                name = "Full Spectrum",
+                text = {
+                    "Score at least one card of",
+                    "{C:attention}every suit{} during the Blind",
+                    "{C:green}Win{}: a random scored card",
+                    "gains a random {C:dark_edition}edition{}",
+                    "{C:red}Lose{}: a random {C:dark_edition}edition{} in",
+                    "your deck is removed",
+                },
+            },
+            c_sdb_no_second_chances = {
+                name = "No Second Chances",
+                text = {
+                    "Win the Blind without using",
+                    "a {C:attention}discard{}",
+                    "{C:green}Win{}: a random {C:tarot}Tarot{} and",
+                    "{C:blue}+1 hand{} next Blind",
+                    "{C:red}Lose{}: {C:red}-1 discard{} next Blind",
+                },
+            },
+            c_sdb_last_hand_standing = {
+                name = "Last Hand Standing",
+                text = {
+                    "Win the Blind with {C:attention}0{} hands",
+                    "left after the winning hand",
+                    "{C:green}Win{}: {C:attention}#1#{} random cards in your",
+                    "deck gain an {C:attention}enhancement{}",
+                    "{C:red}Lose{}: {C:red}-1 hand{} next Blind",
+                },
+            },
             c_sdb_test = {
                 name = "Test Wager",
                 text = {
