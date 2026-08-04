@@ -10,8 +10,11 @@ local function count_keys(t)
     return n
 end
 
-Wagers.define {
-    key = "test",
+SideBets.register_wager {
+    id = "test",
+    pos = { x = 0, y = 0 },
+    no_collection = true,
+    in_pool = function() return false end,
     new_progress = function()
         return { cards = {}, discarded = false }
     end,
@@ -60,6 +63,7 @@ function Wagers.debug_clear()
     for slot in pairs(state.slots) do
         state.slots[slot] = nil
     end
+    Wagers.refresh_area()
     report("cleared every wager slot")
 end
 

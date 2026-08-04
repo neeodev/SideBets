@@ -168,6 +168,16 @@ return {
                 },
             },
         },
+        Wager = {
+            c_sdb_test = {
+                name = "Test Wager",
+                text = {
+                    "{C:inactive}Debug card.{} Win the Blind",
+                    "with {C:attention}3{} cards scored and",
+                    "no {C:attention}discard{} used",
+                },
+            },
+        },
     },
     misc = {
         dictionary = {

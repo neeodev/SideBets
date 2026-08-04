@@ -4,6 +4,8 @@ local Wagers = SideBets.Wagers
 
 Wagers.DEFAULT_SLOTS = 1
 
+function Wagers.refresh_area() end
+
 function Wagers.enabled()
     local cfg = SideBets.config and SideBets.config.wagers
     return not cfg or cfg.enabled ~= false
@@ -62,6 +64,7 @@ function Wagers.add(key)
     if not slot then return nil end
 
     state.slots[slot] = { key = key, status = "pending" }
+    Wagers.refresh_area()
     return slot
 end
 
@@ -73,6 +76,7 @@ function Wagers.replace(slot, key)
     if current and current.status ~= "pending" then return false end
 
     state.slots[slot] = { key = key, status = "pending" }
+    Wagers.refresh_area()
     return true
 end
 
@@ -81,5 +85,6 @@ function Wagers.remove(slot)
     if not state or not state.slots[slot] then return false end
 
     state.slots[slot] = nil
+    Wagers.refresh_area()
     return true
 end

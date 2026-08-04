@@ -17,6 +17,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "wagers",
+    path = "wagers.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
     key = "jokers_soul",
     path = "jokers_soul.png",
     px = 71,
@@ -34,6 +41,8 @@ local SYSTEM = {
     "wagers/state.lua",
     "wagers/lifecycle.lua",
     "wagers/events.lua",
+    "wagers/registry.lua",
+    "wagers/area.lua",
     "wagers/debug.lua",
 }
 
