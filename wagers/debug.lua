@@ -4,6 +4,40 @@ local function report(message)
     sendDebugMessage(message, "SideBets")
 end
 
+local function count_keys(t)
+    local n = 0
+    for _ in pairs(t) do n = n + 1 end
+    return n
+end
+
+Wagers.define {
+    key = "test",
+    new_progress = function()
+        return { cards = {}, discarded = false }
+    end,
+    track = function(progress, event)
+        if event.name == "card_scored" and event.card_id then
+            progress.cards[event.card_id] = true
+        elseif event.name == "discard_used" then
+            progress.discarded = true
+        end
+    end,
+    check = function(progress)
+        return count_keys(progress.cards) >= 3 and not progress.discarded
+    end,
+    get_progress_text = function(progress)
+        return ("%d/3 cards, %s"):format(
+            count_keys(progress.cards),
+            progress.discarded and "discard used" or "no discard")
+    end,
+    reward = function()
+        report("test wager paid out")
+    end,
+    penalty = function()
+        report("test wager lost")
+    end,
+}
+
 function Wagers.debug_add(key)
     if not Wagers.enabled() then
         report("wagers are disabled in the config")
@@ -29,6 +63,24 @@ function Wagers.debug_clear()
     report("cleared every wager slot")
 end
 
+function Wagers.debug_start()
+    report(("activated %d wager(s)"):format(Wagers.start_blind()))
+end
+
+local function resolve(won)
+    Wagers.resolve_blind(Wagers.blind_summary(won))
+    Wagers.cleanup_resolved()
+    report(won and "resolved as a win" or "resolved as a loss")
+end
+
+function Wagers.debug_resolve_success()
+    resolve(true)
+end
+
+function Wagers.debug_resolve_failure()
+    resolve(false)
+end
+
 function Wagers.debug_print_state()
     local state = Wagers.get_state()
     if not state then
@@ -39,6 +91,15 @@ function Wagers.debug_print_state()
     report(("wagers %d/%d"):format(Wagers.count(), state.max_slots))
     for slot = 1, state.max_slots do
         local wager = state.slots[slot]
-        report(("  slot %d: %s"):format(slot, wager and (wager.key .. " " .. wager.status) or "empty"))
+        if not wager then
+            report(("  slot %d: empty"):format(slot))
+        else
+            local def = Wagers.get_definition(wager.key)
+            local progress = wager.progress and def and def.get_progress_text
+                and def.get_progress_text(wager.progress)
+
+            report(("  slot %d: %s %s%s"):format(slot, wager.key, wager.status,
+                progress and (" [" .. progress .. "]") or ""))
+        end
     end
 end

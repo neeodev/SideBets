@@ -13,9 +13,9 @@ function SideBets.clear_hand_scratch()
     scratch = setmetatable({}, { __mode = "k" })
 end
 
-SMODS.current_mod.calculate = function(self, context)
+SideBets.on_calculate(function(context)
     local round_over = context.end_of_round and not context.individual and not context.repetition
     if context.before or round_over then
         SideBets.clear_hand_scratch()
     end
-end
+end)

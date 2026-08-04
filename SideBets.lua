@@ -24,6 +24,7 @@ SMODS.Atlas {
 }
 
 local SYSTEM = {
+    "utilities/calculate.lua",
     "utilities/card.lua",
     "utilities/hand.lua",
     "utilities/scratch.lua",
@@ -31,6 +32,8 @@ local SYSTEM = {
     "utilities/registry.lua",
 
     "wagers/state.lua",
+    "wagers/lifecycle.lua",
+    "wagers/events.lua",
     "wagers/debug.lua",
 }
 
