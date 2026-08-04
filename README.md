@@ -34,7 +34,7 @@ Division keep scaling.
 | Blank Slate | $6 | Each scored card with no enhancement, seal or edition gives X1.10 Mult |
 | Collector's Grade | $7 | Each scored card with an enhancement, an edition and a seal gives X1.5 Mult |
 | Second Coat | $6 | Once per round, the first scored enhanced card with no edition has a 1 in 4 chance to become Foil |
-| Safety Glass | $7 | Scored Glass Cards that survive the hand gain +4 permanent Bonus Chips |
+| Safety Glass | $7 | Prevents the first Glass Card from shattering each round, and gains X0.1 Mult each time it saves one |
 
 ### Rare
 
@@ -60,9 +60,9 @@ Division keep scaling.
 Ascension group (Decimal Engine, Echo Chamber, Long Division). Toggling one off
 only keeps it out of the generation pools; copies already in a run keep working.
 
-Blueprint and Brainstorm copy the scoring but not the permanent growth. Second
-Coat and Safety Glass are not Blueprint-compatible at all, since mutating cards
-is their whole job.
+Blueprint and Brainstorm copy the scoring but not the permanent growth, so a
+copy of Safety Glass gives its XMult without ever saving a card. Second Coat is
+not Blueprint-compatible at all, since mutating cards is its whole job.
 
 ## Credits
 

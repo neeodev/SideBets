@@ -1,0 +1,11 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '-- TARGET: card destroyed'
+position = 'after'
+match_indent = true
+payload = 'if destroyed and SideBets and SideBets.save_glass_card(card) then destroyed = nil end'

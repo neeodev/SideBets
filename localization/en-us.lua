@@ -81,9 +81,11 @@ return {
             j_sdb_safety_glass = {
                 name = "Safety Glass",
                 text = {
-                    "Each scored {C:attention}Glass Card{} that",
-                    "is not destroyed permanently",
-                    "gains {C:chips}+#1#{} Bonus Chips",
+                    "Prevents the first {C:attention}Glass Card{}",
+                    "from shattering each round",
+                    "Gains {X:mult,C:white}X#2#{} Mult when",
+                    "a card is saved",
+                    "{C:inactive}(Currently {X:mult,C:white}X#1#{} {C:inactive}Mult){}",
                 },
             },
 
