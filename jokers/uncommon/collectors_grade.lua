@@ -8,7 +8,7 @@ SideBets.register_joker {
     perishable_compat = true,
     config = {
         extra = {
-            xmult = 1.18,
+            xmult = 1.5,
         },
     },
 
@@ -22,6 +22,7 @@ SideBets.register_joker {
             if SideBets.scores(other)
                 and SideBets.has_enhancement(other)
                 and SideBets.has_edition(other)
+                and SideBets.has_seal(other)
             then
                 return { x_mult = card.ability.extra.xmult }
             end

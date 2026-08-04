@@ -63,9 +63,10 @@ return {
             j_sdb_collectors_grade = {
                 name = "Collector's Grade",
                 text = {
-                    "Each scored card with both an",
-                    "{C:attention}enhancement{} and an {C:attention}edition{}",
-                    "gives {X:mult,C:white}X#1#{} Mult",
+                    "Scored cards with",
+                    "an {C:attention}Enhancement{}, {C:attention}Edition{}",
+                    "and {C:attention}Seal{} give",
+                    "{X:mult,C:white}X#1#{} Mult",
                 },
             },
             j_sdb_second_coat = {
