@@ -12,6 +12,12 @@ SideBets.register_wager {
         return summary.hands_left == 0
     end,
 
+    get_progress_text = function()
+        local round = G.GAME and G.GAME.current_round
+        if not round then return nil end
+        return ("%d hand(s) left"):format(round.hands_left or 0)
+    end,
+
     reward = function()
         local plain = {}
         for _, card in ipairs(G.playing_cards or {}) do

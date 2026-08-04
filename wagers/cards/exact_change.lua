@@ -15,6 +15,12 @@ SideBets.register_wager {
         return to_big(summary.score) <= to_big(summary.requirement) * MARGIN
     end,
 
+    get_progress_text = function()
+        local blind = G.GAME and G.GAME.blind
+        if not blind or not blind.chips then return nil end
+        return ("stay under " .. number_format(blind.chips * MARGIN))
+    end,
+
     reward = function()
         ease_dollars(REWARD)
     end,

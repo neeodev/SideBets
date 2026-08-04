@@ -34,6 +34,16 @@ function Wagers.get_active()
     return collect("active")
 end
 
+function Wagers.progress_text(slot)
+    if not slot then return nil end
+
+    local wager = Wagers.get(slot)
+    if not wager or not wager.progress then return nil end
+
+    local def = definitions[wager.key]
+    return def and def.get_progress_text and def.get_progress_text(wager.progress) or nil
+end
+
 function Wagers.start_blind()
     local started = 0
 

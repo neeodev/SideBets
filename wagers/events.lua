@@ -39,6 +39,8 @@ SideBets.on_calculate(function(context)
                 wild = SMODS.has_any_suit(card) and true or nil,
             })
         end
+    elseif context.card_added and context.card then
+        Wagers.claim(context.card)
     elseif is_blind_result(context) then
         Wagers.resolve_blind(Wagers.blind_summary(not context.game_over, context.scoring_name))
         Wagers.cleanup_resolved()

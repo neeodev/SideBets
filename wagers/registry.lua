@@ -18,6 +18,19 @@ SMODS.ConsumableType {
     },
 }
 
+local function progress_row(card)
+    local text = Wagers.progress_text(card and card.ability and card.ability.wager_slot)
+    if not text then return nil end
+
+    return { {
+        n = G.UIT.C,
+        config = { align = "cm", padding = 0.02 },
+        nodes = {
+            { n = G.UIT.T, config = { text = text, colour = G.C.UI.TEXT_INACTIVE, scale = 0.32 } },
+        },
+    } }
+end
+
 function SideBets.register_wager(def)
     local id = def.id
     assert(type(id) == "string" and id ~= "", "a wager is missing its `id`")
@@ -35,6 +48,18 @@ function SideBets.register_wager(def)
     def.set = "Wager"
     def.atlas = def.atlas or "wagers"
     def.can_use = function() return false end
+
+    def.can_sell = function(self, card)
+        local wager = Wagers.get(card.ability.wager_slot)
+        return wager ~= nil and wager.status == "pending"
+    end
+
+    local extra_loc_vars = def.loc_vars
+    def.loc_vars = function(self, info_queue, card)
+        local res = extra_loc_vars and extra_loc_vars(self, info_queue, card) or {}
+        res.main_end = progress_row(card)
+        return res
+    end
 
     local extra_in_pool = def.in_pool
     def.in_pool = function(self, args)
