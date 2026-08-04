@@ -19,19 +19,3 @@ function SideBets.upgrade_message(colour)
     return { message = localize("k_upgrade_ex"), colour = colour or G.C.MULT }
 end
 
-function SideBets.queue_card_message(card, message, colour)
-    if not card or not G.E_MANAGER then return end
-    G.E_MANAGER:add_event(Event({
-        trigger = "immediate",
-        func = function()
-            if not SideBets.is_destroyed(card) then
-                card:juice_up(0.3, 0.3)
-                card_eval_status_text(card, "extra", nil, nil, nil, {
-                    message = message,
-                    colour = colour or G.C.CHIPS,
-                })
-            end
-            return true
-        end,
-    }))
-end

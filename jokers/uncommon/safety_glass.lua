@@ -11,6 +11,32 @@ local function find_saver()
     end
 end
 
+local function announce(saved, joker, gain)
+    if not G.E_MANAGER then return end
+
+    G.E_MANAGER:add_event(Event({
+        trigger = "immediate",
+        func = function()
+            play_sound("tarot1")
+
+            if not SideBets.is_destroyed(saved) then
+                saved:juice_up(0.5, 0.6)
+                card_eval_status_text(saved, "extra", nil, nil, nil, {
+                    message = localize("k_saved_ex"),
+                    colour = G.C.RED,
+                })
+            end
+
+            joker:juice_up(0.4, 0.4)
+            card_eval_status_text(joker, "extra", nil, nil, nil, {
+                message = "+" .. gain,
+                colour = G.C.MULT,
+            })
+            return true
+        end,
+    }))
+end
+
 function SideBets.save_glass_card(card)
     if not card or not card.glass_trigger then return false end
 
@@ -22,7 +48,7 @@ function SideBets.save_glass_card(card)
     extra.xmult = extra.xmult + extra.xmult_gain
     card.glass_trigger = nil
 
-    SideBets.queue_card_message(card, localize("k_saved_ex"), G.C.CHIPS)
+    announce(card, joker, extra.xmult_gain)
     return true
 end
 

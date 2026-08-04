@@ -71,8 +71,3 @@ function SideBets.is_plain(card)
         and not SideBets.has_seal(card)
         and not SideBets.has_edition(card)
 end
-
-function SideBets.add_perma_bonus(card, amount)
-    if not card or not card.ability then return end
-    card.ability.perma_bonus = (card.ability.perma_bonus or 0) + amount
-end
