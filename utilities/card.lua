@@ -45,10 +45,6 @@ function SideBets.native_suit(card)
     return card.base.suit
 end
 
-function SideBets.is_wild(card)
-    return card and SMODS.has_any_suit(card)
-end
-
 function SideBets.has_enhancement(card)
     return card ~= nil and next(SMODS.get_enhancements(card)) ~= nil
 end

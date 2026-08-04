@@ -22,22 +22,6 @@ function SideBets.numeric_rank_set(hand)
     return set, count
 end
 
-function SideBets.native_suit_set(hand, opts)
-    opts = opts or {}
-    local set, count = {}, 0
-    for i = 1, #(hand or {}) do
-        local card = hand[i]
-        if SideBets.scores(card) and not (opts.ignore_wild and SideBets.is_wild(card)) then
-            local suit = SideBets.native_suit(card)
-            if suit and not set[suit] then
-                set[suit] = true
-                count = count + 1
-            end
-        end
-    end
-    return set, count
-end
-
 function SideBets.all_numeric(hand)
     local total = #(hand or {})
     if total == 0 then return false end

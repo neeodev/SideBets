@@ -8,24 +8,26 @@ SideBets.register_joker {
     perishable_compat = true,
     config = {
         extra = {
-            xmult = 1.75,
-            required_suits = 4,
+            repetitions = 1,
         },
     },
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_wild
-        local extra = card.ability.extra
-        return { vars = { extra.xmult, extra.required_suits } }
+        return { vars = { card.ability.extra.repetitions } }
     end,
 
     calculate = function(self, card, context)
-        if context.joker_main then
-            local extra = card.ability.extra
-            local _, suits = SideBets.native_suit_set(context.scoring_hand, { ignore_wild = true })
-            if suits >= extra.required_suits then
-                return { x_mult = extra.xmult }
-            end
+        if context.repetition and context.cardarea == G.play then
+            local other = context.other_card
+            if not SideBets.scores(other) then return end
+            if not SideBets.analyse(context.scoring_hand).first_suit[other] then return end
+
+            return {
+                message = localize("k_again_ex"),
+                repetitions = card.ability.extra.repetitions,
+                card = card,
+            }
         end
     end,
 }

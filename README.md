@@ -30,7 +30,7 @@ Division keep scaling.
 | Joker | Cost | Effect |
 |---|---:|---|
 | Keep Your Distance | $6 | X2 Mult if 4 or more scored cards are all numbered and use at least two ranks, no two of them closer than 3 ranks apart. Repeated ranks are fine |
-| Patchwork | $6 | X1.75 Mult if all four suits score from non-Wild cards |
+| Patchwork | $6 | Retriggers the first scored card of each suit once |
 | Blank Slate | $6 | Each scored card with no enhancement, seal or edition gives X1.10 Mult |
 | Collector's Grade | $7 | Each scored card with both an enhancement and an edition gives X1.18 Mult |
 | Second Coat | $6 | Once per round, the first scored enhanced card with no edition has a 1 in 4 chance to become Foil |

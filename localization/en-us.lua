@@ -47,9 +47,9 @@ return {
             j_sdb_patchwork = {
                 name = "Patchwork",
                 text = {
-                    "{X:mult,C:white}X#1#{} Mult if scored hand",
-                    "contains {C:attention}#2#{} suits, each from",
-                    "at least one non-{C:attention}Wild{} card",
+                    "The {C:attention}first{} scored card",
+                    "of each {C:attention}suit{} retriggers",
+                    "{C:attention}#1#{} additional time",
                 },
             },
             j_sdb_blank_slate = {
